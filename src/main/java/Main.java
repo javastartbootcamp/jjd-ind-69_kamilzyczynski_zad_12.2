@@ -7,16 +7,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         File file = new File("employees.csv");
+        file.createNewFile();
 
-        if (file.exists()) {
-            File stats = new File("stats.txt");
-            stats.createNewFile();
-
-//            FileWriter fileWriter = new FileWriter(stats);
-//            fileWriter.write("Średnia wypłata: 5000");
-//
-//            fileWriter.close();
-        }
+        Company company = new Company();
+        Employee[] employees = company.getEmployees("employees.csv");
+        company.saveStats(employees, "stats.txt");
 
     }
 }

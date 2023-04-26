@@ -1,0 +1,6 @@
+Średnia wypłata: 5300.0
+Minimalna wypłata: 4800.0
+Maksymalna wypłata: 6000.0
+Liczba pracowników IT: 2
+Liczba pracowników Support: 1
+Liczba pracowników Management: 1
