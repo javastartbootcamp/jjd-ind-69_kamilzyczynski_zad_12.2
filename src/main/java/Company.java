@@ -19,7 +19,11 @@ public class Company {
 
     public void saveStats(Employee[] employees, String fileName) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-        writer.write(getStats(employees));
+        if (employees == null) {
+            writer.write("Brak informacji o pracownikach");
+        } else {
+            writer.write(getStats(employees));
+        }
         writer.close();
     }
 
@@ -33,16 +37,16 @@ public class Company {
         return counter;
     }
 
-    public double getAverageSalary(Employee[] employees) {
+    private double getAverageSalary(Employee[] employees) {
         double sum = 0;
 
         for (Employee employee : employees) {
             sum += employee.getSalary();
         }
         return (sum / employees.length);
-}
+    }
 
-    public double getMinimumSalary(Employee[] employees) {
+    private double getMinimumSalary(Employee[] employees) {
         double minimum = Double.MAX_VALUE;
 
         for (Employee employee : employees) {
@@ -53,7 +57,7 @@ public class Company {
         return minimum;
     }
 
-    public double getMaximumSalary(Employee[] employees) {
+    private double getMaximumSalary(Employee[] employees) {
         double maximum = Double.MIN_VALUE;
 
         for (Employee employee : employees) {
@@ -64,7 +68,7 @@ public class Company {
         return maximum;
     }
 
-    public int getDeparmentSize(Employee[] employees, String department) {
+    private int getDeparmentSize(Employee[] employees, String department) {
         int counter = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment().equals(department)) {
